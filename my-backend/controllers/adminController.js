@@ -1,5 +1,5 @@
 const User = require('../models/User');
-const Course = require('../models/Course');
+const Course = require('../models/course');
 const Certificate = require('../models/Certificate');
 
 // Get dashboard statistics

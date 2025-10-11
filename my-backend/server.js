@@ -36,7 +36,6 @@ const courseRoutes = require('./routes/courseRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const certificateRoutes = require('./routes/certificateRoutes');
 const studyHackRoutes = require('./routes/studyHackRoutes');
-const cheatSheetRoutes = require('./routes/cheatSheetRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 
 // Use routes
@@ -45,16 +44,7 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/certificates', certificateRoutes);
 app.use('/api/study-hacks', studyHackRoutes);
-app.use('/api/cheat-sheets', cheatSheetRoutes);
 app.use('/api/admin', adminRoutes);
-
-// Handle undefined routes
-app.use('*', (req, res) => {
-  res.status(404).json({
-    success: false,
-    message: 'Route not found'
-  });
-});
 
 // Error handling middleware
 app.use((error, req, res, next) => {
