@@ -36,7 +36,7 @@ export interface ApiError extends Error {
 
 // Create axios instance with base configuration
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+  baseURL: '/api',
   timeout: 10000,
 });
 
@@ -71,7 +71,7 @@ API.interceptors.response.use(
 // Test backend connection
 export const testBackend = async (): Promise<ApiResponse> => {
   try {
-    const response = await axios.get('http://localhost:5000/health');
+    const response = await axios.get('/api/health');
     return response.data;
   } catch (error) {
     console.error('Backend connection test failed:', error);
