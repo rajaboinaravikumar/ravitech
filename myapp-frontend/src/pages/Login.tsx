@@ -31,9 +31,9 @@ const Login = () => {
   // Initialize Google OAuth
   useEffect(() => {
     const initializeGoogleOAuth = () => {
-      if (window.google && process.env.REACT_APP_GOOGLE_CLIENT_ID) {
+      if (window.google && import.meta.env.VITE_GOOGLE_CLIENT_ID) {
         window.google.accounts.id.initialize({
-          client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+          client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
           callback: handleGoogleSignIn,
           auto_select: false,
           cancel_on_tap_outside: true,
@@ -167,22 +167,6 @@ const Login = () => {
     navigate('/register');
   };
 
-  // Pre-fill admin credentials for testing
-  const fillAdminCredentials = () => {
-    setFormData({
-      email: 'raviramrajaboina@gmail.com',
-      password: 'ravi+shiva=143'
-    });
-  };
-
-  // Pre-fill student credentials for testing
-  const fillStudentCredentials = () => {
-    setFormData({
-      email: 'student@example.com',
-      password: 'password123'
-    });
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 py-8">
       <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,25 +203,6 @@ const Login = () => {
             </div>
           )}
 
-          {/* Quick Test Buttons - Only in development */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="mb-6 space-y-3">
-              <button
-                type="button"
-                onClick={fillAdminCredentials}
-                className="w-full text-sm py-2 px-3 bg-purple-100 text-purple-700 rounded-lg border border-purple-300 hover:bg-purple-200 transition-colors duration-200"
-              >
-                🛡️ Fill Admin Credentials
-              </button>
-              <button
-                type="button"
-                onClick={fillStudentCredentials}
-                className="w-full text-sm py-2 px-3 bg-blue-100 text-blue-700 rounded-lg border border-blue-300 hover:bg-blue-200 transition-colors duration-200"
-              >
-                👨‍🎓 Fill Student Credentials
-              </button>
-            </div>
-          )}
           
           <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Email Input */}
@@ -386,12 +351,9 @@ const Login = () => {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
               Join Thousands of Successful Students
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               Master programming with Ravi Ram's proven teaching methods
             </p>
-            <div className="text-xs text-gray-500 dark:text-gray-500">
-              <strong>Admin Demo:</strong> raviramrajaboina@gmail.com | <strong>Password:</strong> ravi+shiva=143
-            </div>
           </div>
         </div>
       </div>
