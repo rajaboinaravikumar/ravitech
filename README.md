@@ -4,7 +4,7 @@
 A full-stack Learning Management System (LMS) built with React, TypeScript, Node.js, Express, and MongoDB. This platform allows students to learn programming languages through interactive tutorials, practice exercises, and expert guidance from Ravi Ram.
 
 ## Project Structure
-```
+
 ├── my-backend/          # Node.js/Express backend server
 │   ├── config/         # Database and passport configuration
 │   ├── controllers/    # Route controllers
